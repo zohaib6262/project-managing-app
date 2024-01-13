@@ -1,6 +1,11 @@
+import { useState } from "react";
 import noProjectImage from "../assets/no-projects.png";
 import Button from "./Button";
-export default function NoProjectSelected() {
+import NewProject from "./NewProject";
+export default function NoProjectSelected({ isEditing }) {
+  function onClickHandle(value) {
+    isEditing(value);
+  }
   return (
     <div className="mt-24 text-center w-2/3">
       <img
@@ -15,7 +20,7 @@ export default function NoProjectSelected() {
         Select a Project or get started with a new one
       </p>
       <p className="mt-8">
-        <Button>Create a new Project</Button>
+        <Button onClick={onClickHandle}>Create a new Project</Button>
       </p>
     </div>
   );
